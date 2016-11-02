@@ -13,7 +13,7 @@
 #include "geometry_msgs/Twist.h"
 
 #include <iostream>
-#include <Eigen/Dense>
+//#include <Eigen/Dense>
 
 
 //////////////////////////////////////////////////////////////////////
@@ -333,12 +333,12 @@ int main(int argc, char **argv)
     ros::spin();
 
 
-    Eigen::Matrix4d K;
-    K.setZero();
-    K(0, 0) = 3;
-    K(1, 1) = 1;
-    K(2, 2) = 2;
-    K(3, 3) = 1;
+//     Eigen::Matrix4d K;
+//    K.setZero();
+//    K(0, 0) = 3;
+//    K(1, 1) = 1;
+//    K(2, 2) = 2;
+//    K(3, 3) = 1;
 
 
 }

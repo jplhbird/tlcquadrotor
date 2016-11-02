@@ -10,7 +10,7 @@ find_package(catkin REQUIRED COMPONENTS
   std_msgs
 )
 
-find_package(Eigen REQUIRED)
+# find_package(Eigen REQUIRED)
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
@@ -106,8 +106,8 @@ catkin_package(
 #  LIBRARIES tlcquadrotor
 #  CATKIN_DEPENDS roscpp rospy std_msgs
 #  DEPENDS system_lib
-INCLUDE_DIRS include ${Eigen_INCLUDE_DIRS}
-DEPENDS Eigen
+#INCLUDE_DIRS include ${Eigen_INCLUDE_DIRS}
+#DEPENDS Eigen
 )
 
 ###########
@@ -119,7 +119,7 @@ DEPENDS Eigen
 # include_directories(include)
 include_directories(
   ${catkin_INCLUDE_DIRS}
-  ${Eigen_INCLUDE_DIRS}
+#  ${Eigen_INCLUDE_DIRS}
 )
 
 
