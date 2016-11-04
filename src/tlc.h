@@ -132,6 +132,19 @@ public:
 
 	void Control(void);
 
+        struct uav_state{
+            float position[3];
+            float velocity[3];
+            float attitude[3];
+            float anguar_vel[3];
+        };
+
+        uav_state state_k;  //the current state of the uav;
+        uav_state state_k_1;  //the previous state of the uav;
+        uav_state state_k_2;  //the state of the uav at the k-2 sampling time
+        uav_state state_filter_m1;   //the state of the uav at the
+        uav_state state_filter_m2;
+
 private:
         //CSetPa m_setpadlg;  //the time of magnitude of amplitude or small
 	void compute_omega_nom(void);
