@@ -139,11 +139,17 @@ public:
             float anguar_vel[3];
         };
 
+        void CalculateRotorVelocities(Eigen::VectorXd* rotor_velocities) const;
+
+        void second_order_filter(Eigen::VectorXd* )
+
         uav_state state_k;  //the current state of the uav;
         uav_state state_k_1;  //the previous state of the uav;
         uav_state state_k_2;  //the state of the uav at the k-2 sampling time
-        uav_state state_filter_m1;   //the state of the uav at the
-        uav_state state_filter_m2;
+        uav_state state_filter_m1;   //the middle state of the uav in the 2-order filter
+        uav_state state_filter_m2;   //the middle state of the uav in the 2-order filter
+
+
 
 private:
         //CSetPa m_setpadlg;  //the time of magnitude of amplitude or small
