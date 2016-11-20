@@ -11,6 +11,7 @@
 
 #include "sensor_msgs/Imu.h"
 #include "geometry_msgs/Twist.h"
+#include <Eigen/Dense>
 
 
 #define T_SAMPLE 20
@@ -139,9 +140,9 @@ public:
             float anguar_vel[3];
         };
 
-        void CalculateRotorVelocities(Eigen::VectorXd* rotor_velocities) const;
+        //void CalculateRotorVelocities(Eigen::VectorXd* rotor_velocities) const;
 
-        void second_order_filter(Eigen::VectorXd* )
+        void second_order_filter(Eigen::VectorXd* rotor_velocities);
 
         uav_state state_k;  //the current state of the uav;
         uav_state state_k_1;  //the previous state of the uav;
