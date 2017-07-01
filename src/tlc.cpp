@@ -325,7 +325,16 @@ void TLC::rotate_innerloop_controller(void)
 }
 
 
+void second_order_filter(Eigen::VectorXd* rotor_velocities){
 
+    for(i=0;i<3;i++){
+        V_nom_filter_m2[i]=(a_1_in_trans[i]*V_nom[i]-
+        a_1_in_trans[i]*V_nom_filter_m1[i]-a_2_in_trans[i]*V_nom_filter_m2[i])*(T_sampling*time_scale_position)+V_nom_filter_m2[i];
+        V_nom_filter_m1[i]=V_nom_filter_m2[i]*(T_sampling*time_scale_position)+V_nom_filter_m1[i];
+
+    }
+
+}
 
 
 

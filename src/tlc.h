@@ -140,9 +140,16 @@ public:
             float anguar_vel[3];
         };
 
+        struct second_order_filter_parameter{
+            float m1;
+            float m2;
+        };
+
         //void CalculateRotorVelocities(Eigen::VectorXd* rotor_velocities) const;
 
-        void second_order_filter(Eigen::VectorXd* rotor_velocities);
+        void second_order_filter(uav_state );
+
+        void second_order_filter_e(Eigen::VectorXd* rotor_velocities);
 
         uav_state state_k;  //the current state of the uav;
         uav_state state_k_1;  //the previous state of the uav;
