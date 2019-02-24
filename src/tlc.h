@@ -147,9 +147,9 @@ public:
 
         //void CalculateRotorVelocities(Eigen::VectorXd* rotor_velocities) const;
 
-        void second_order_filter(uav_state );
+        //void second_order_filter(uav_state );
 
-        void second_order_filter_e(Eigen::VectorXd* rotor_velocities);
+        void second_order_filter(Eigen::VectorXd& input, Eigen::VectorXd& output);
 
         uav_state state_k;  //the current state of the uav;
         uav_state state_k_1;  //the previous state of the uav;

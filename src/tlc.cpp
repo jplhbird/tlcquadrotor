@@ -325,15 +325,24 @@ void TLC::rotate_innerloop_controller(void)
 }
 
 
-void second_order_filter(Eigen::VectorXd* rotor_velocities){
-
-    for(i=0;i<3;i++){
+void TLC::second_order_filter(Eigen::VectorXd& input, Eigen::VectorXd& output){
+     
+    
+  /* for(int i=0;i<3;i++){
         V_nom_filter_m2[i]=(a_1_in_trans[i]*V_nom[i]-
         a_1_in_trans[i]*V_nom_filter_m1[i]-a_2_in_trans[i]*V_nom_filter_m2[i])*(T_sampling*time_scale_position)+V_nom_filter_m2[i];
         V_nom_filter_m1[i]=V_nom_filter_m2[i]*(T_sampling*time_scale_position)+V_nom_filter_m1[i];
 
-    }
+    } */
 
+	Eigen::VectorXd middle1 = input;
+	Eigen::VectorXd middle2 = input;
+	double a_1 = 1;
+	double a_2 = 1.414;
+	int time_scale_position = 50;
+	middle2 = (a_1 *input - a_1 *middle1- a_2 *middle2)*(T_sampling*time_scale_position) + middle2;
+	middle1 = middle2*(T_sampling*time_scale_position) + middle1;
+	output = middle1;
 }
 
 
@@ -351,8 +360,6 @@ int main(int argc, char **argv)
         K(1, 1) = 1;
         K(2, 2) = 2;
         K(3, 3) = 1;
-
-
 }
 
 
